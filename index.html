@@ -14,4 +14,174 @@
     nav a:hover { background-color: #66BB6A; color: white; }
     .container { padding: 20px; max-width: 1200px; margin: auto; }
     .products { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .product-card { background: white;
+    .product-card { background: white;<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>श्री Dairy Farm</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f9f7; }
+    header { background-color: #4CAF50; color: white; padding: 25px 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 5px 0 0; font-size: 1rem; }
+    nav { display: flex; justify-content: center; background-color: #388E3C; }
+    nav a { color: white; padding: 14px 20px; text-decoration: none; }
+    nav a:hover { background-color: #66BB6A; color: white; }
+    .container { padding: 20px; max-width: 1200px; margin: auto; }
+    .products { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .product-card { background: white; border-radius: 10px; width: 220px; text-align: center; padding: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+    .product-card:hover { transform: scale(1.05); }
+    .product-card img { width: 150px; height: 150px; object-fit: cover; border-radius: 10px; }
+    .product-card h3 { margin: 10px 0 5px; }
+    .product-card p { margin: 0; color: #555; }
+    .product-card button { margin-top: 10px; padding: 10px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .product-card button:hover { background-color: #45a049; }
+    form { max-width: 400px; margin: 30px auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    form input, form select { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
+    form button { width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    form button:hover { background-color: #45a049; }
+    #totalAmount { text-align: center; font-size: 18px; margin-top: 10px; }
+    #payButton button { width: 80%; }
+    footer { text-align: center; padding: 20px; background: #388E3C; color: white; margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>श्री Dairy Farm</h1>
+  <p>Pratapgarh, UP | Contact: 8948090989</p>
+</header>
+
+<nav>
+  <a href="#products">Products</a>
+  <a href="#order">Order Now</a>
+</nav>
+
+<div class="container" id="products">
+  <h2 style="text-align:center; margin-bottom:20px;">Our Products</h2>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://i.ibb.co/3mM8rXY/buffalo-milk.jpg" alt="Buffalo Milk">
+      <h3>Milk (Buffalo)</h3>
+      <p>₹80 per liter</p>
+      <button onclick="orderProduct('Milk')">Order Now</button>
+    </div>
+    <div class="product-card">
+      <img src="https://i.ibb.co/54Dp3ZQ/cow-milk.jpg" alt="Cow Milk">
+      <h3>Milk (Cow)</h3>
+      <p>₹60 per liter</p>
+      <button onclick="orderProduct('Milk')">Order Now</button>
+    </div>
+    <div class="product-card">
+      <img src="https://i.ibb.co/5LqLk0Y/paneer.jpg" alt="Paneer">
+      <h3>Paneer</h3>
+      <p>₹250 per kg</p>
+      <button onclick="orderProduct('Paneer')">Order Now</button>
+    </div>
+    <div class="product-card">
+      <img src="https://i.ibb.co/yg7K3Qv/ghee.jpg" alt="Ghee">
+      <h3>Ghee</h3>
+      <p>₹1200 per kg</p>
+      <button onclick="orderProduct('Ghee')">Order Now</button>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="order">
+  <h2 style="text-align:center;">Place Your Order</h2>
+  <form id="orderForm" onsubmit="submitForm(event)">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+    <select id="product" required onchange="calculateTotal()">
+      <option value="">Select Product</option>
+      <option value="Milk">Milk</option>
+      <option value="Ghee">Ghee</option>
+      <option value="Paneer">Paneer</option>
+    </select>
+    <select id="milkType" style="display:none;" onchange="calculateTotal()">
+      <option value="">Select Milk Type</option>
+      <option value="Buffalo">Buffalo - ₹80</option>
+      <option value="Cow">Cow - ₹60</option>
+    </select>
+    <input type="number" id="quantity" placeholder="Quantity" required min="1" onchange="calculateTotal()">
+    <select id="payment" required onchange="showPayButton(this.value)">
+      <option value="">Select Payment Method</option>
+      <option value="Cash on Delivery">Cash on Delivery</option>
+      <option value="Online Payment">Online Payment</option>
+    </select>
+    <div id="totalAmount">Total: ₹0</div>
+    <button type="submit">Place Order</button>
+  </form>
+  
+  <div id="payButton" style="display:none; text-align:center; margin-top:20px;">
+    <a href="#" id="upiLink" target="_blank">
+      <button style="background-color:#2196F3;">Pay Online via UPI/Paytm/PhonePe</button>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 श्री Dairy Farm | Pratapgarh, UP | Contact: 8948090989</p>
+</footer>
+
+<script>
+const prices = {
+  Milk: { Buffalo: 80, Cow: 60 },
+  Ghee: 1200,
+  Paneer: 250
+};
+
+const upiId = "rama.dairy@upi";
+
+function orderProduct(product) {
+  document.getElementById('product').value = product;
+  if(product === "Milk") document.getElementById('milkType').style.display = "block";
+  else document.getElementById('milkType').style.display = "none";
+  window.location.href = "#order";
+  calculateTotal();
+}
+
+function calculateTotal() {
+  const product = document.getElementById('product').value;
+  const quantity = parseFloat(document.getElementById('quantity').value) || 0;
+  let total = 0;
+  if(product === "Milk") {
+    const milkType = document.getElementById('milkType').value;
+    total = (prices.Milk[milkType] || 0) * quantity;
+  } else total = (prices[product] || 0) * quantity;
+  document.getElementById('totalAmount').innerText = `Total: ₹${total}`;
+}
+
+function showPayButton(value) {
+  document.getElementById('payButton').style.display = value === "Online Payment" ? "block" : "none";
+}
+
+function submitForm(event) {
+  event.preventDefault();
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const product = document.getElementById('product').value;
+  const quantity = document.getElementById('quantity').value;
+  const payment = document.getElementById('payment').value;
+  let total = 0;
+  let productDetail = product;
+  if(product === "Milk") {
+    const milkType = document.getElementById('milkType').value;
+    total = (prices.Milk[milkType] || 0) * quantity;
+    productDetail += ` (${milkType})`;
+  } else total = (prices[product] || 0) * quantity;
+
+  const message = `Hello श्री Dairy Farm, I want to order:\nName: ${name}\nPhone: ${phone}\nProduct: ${productDetail}\nQuantity: ${quantity}\nPayment Method: ${payment}\nTotal Amount: ₹${total}`;
+  const whatsappUrl = `https://wa.me/918948090989?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, '_blank');
+
+  if(payment === "Online Payment") {
+    const upiUrl = `upi://pay?pa=${upiId}&pn=श्री Dairy Farm&tn=Order&am=${total}&cu=INR`;
+    document.getElementById('upiLink').href = upiUrl;
+  }
+}
+</script>
+
+</body>
+</html>

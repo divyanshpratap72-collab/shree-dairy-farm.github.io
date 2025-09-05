@@ -1,227 +1,321 @@
-shree
-<!-- Product Cards Section -->
-<div class="container" id="products">
-  <h2 style="text-align:center; margin-bottom:20px;">Our Products</h2>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://i.ibb.co/3mM8rXY/buffalo-milk.jpg" alt="Buffalo Milk">
-      <h3>Milk (Buffalo)</h3>
-      <p>₹80 per liter</p>
-      <button onclick="orderProduct('Milk')">Order Now</button>
-    </div>
-    <div class="product-card">
-      <img src="https://i.ibb.co/54Dp3ZQ/cow-milk.jpg" alt="Cow Milk">
-      <h3>Milk (Cow)</h3>
-      <p>₹60 per liter</p>
-      <button onclick="orderProduct('Milk')">Order Now</button>
-    </div>
-    <div class="product-card">
-      <img src="https://i.ibb.co/5LqLk0Y/paneer.jpg" alt="Paneer">
-      <h3>Paneer</h3>
-      <p>₹250 per kg</p>
-      <button onclick="orderProduct('Paneer')">Order Now</button>
-    </div>
-    <div class="product-card">
-      <img src="https://i.ibb.co/yg7K3Qv/ghee.jpg" alt="Ghee">
-      <h3>Ghee</h3>
-      <p>₹1200 per kg</p>
-      <button onclick="orderProduct('Ghee')">Order Now</button>
-    </div>
-  </div>
-</div>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>श्री Dairy Farm</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f9f7; }
-    header { background-color: #4CAF50; color: white; padding: 25px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2rem; }
-    header p { margin: 5px 0 0; font-size: 1rem; }
-    nav { display: flex; justify-content: center; background-color: #388E3C; }
-    nav a { color: white; padding: 14px 20px; text-decoration: none; }
-    nav a:hover { background-color: #66BB6A; color: white; }
-    .container { padding: 20px; max-width: 1200px; margin: auto; }
-    .products { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .product-card { background: white;<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>श्री Dairy Farm</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f9f7; }
-    header { background-color: #4CAF50; color: white; padding: 25px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2rem; }
-    header p { margin: 5px 0 0; font-size: 1rem; }
-    nav { display: flex; justify-content: center; background-color: #388E3C; }
-    nav a { color: white; padding: 14px 20px; text-decoration: none; }
-    nav a:hover { background-color: #66BB6A; color: white; }
-    .container { padding: 20px; max-width: 1200px; margin: auto; }
-    .products { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .product-card { background: white; border-radius: 10px; width: 220px; text-align: center; padding: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s; }
-    .product-card:hover { transform: scale(1.05); }
-    .product-card img { width: 150px; height: 150px; object-fit: cover; border-radius: 10px; }
-    .product-card h3 { margin: 10px 0 5px; }
-    .product-card p { margin: 0; color: #555; }
-    .product-card button { margin-top: 10px; padding: 10px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    .product-card button:hover { background-color: #45a049; }
-    form { max-width: 400px; margin: 30px auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    form input, form select { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
-    form button { width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    form button:hover { background-color: #45a049; }
-    #totalAmount { text-align: center; font-size: 18px; margin-top: 10px; }
-    #payButton button { width: 80%; }
-    footer { text-align: center; padding: 20px; background: #388E3C; color: white; margin-top: 40px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shree Dairy Farm</title>
+<style>
+/* --- General --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdf6e3;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Banner --- */
+.banner {
+    position: relative;
+    text-align: center;
+}
+.banner img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 1px 1px 5px black;
+}
+
+/* --- Navigation --- */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #2e7d32;
+}
+nav a {
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+}
+nav a:hover {
+    background-color: #1b5e20;
+}
+
+/* --- Sections --- */
+section {
+    padding: 2rem;
+    text-align: center;
+}
+
+/* --- Products --- */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+.product {
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    width: 220px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.product h3 {
+    margin-bottom: 0.5rem;
+}
+.order-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.order-btn:hover {
+    background-color: #388e3c;
+}
+
+/* --- Gallery --- */
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+.gallery-images img {
+    width: 220px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* --- Testimonials --- */
+.testimonial-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.testimonial {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 250px;
+}
+.testimonial p {
+    font-style: italic;
+}
+.testimonial span {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+/* --- Order Form --- */
+#orderForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+#orderForm input,
+#orderForm select,
+#orderForm textarea,
+#orderForm button {
+    width: 300px;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+#orderForm button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#orderForm button:hover {
+    background-color: #388e3c;
+}
+#orderForm textarea {
+    height: 80px;
+    resize: none;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* --- Responsive --- */
+@media(max-width: 768px){
+    .product-list, .gallery-images, .testimonial-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    #orderForm input,
+    #orderForm select,
+    #orderForm textarea,
+    #orderForm button {
+        width: 90%;
+    }
+}
+</style>
 </head>
 <body>
 
-<header>
-  <h1>श्री Dairy Farm</h1>
-  <p>Pratapgarh, UP | Contact: 8948090989</p>
-</header>
+<!-- Banner -->
+<div class="banner">
+    <img src="images/banner.jpg" alt="Shree Dairy Farm Banner">
+    <div class="banner-text">
+        <h1>Shree Dairy Farm</h1>
+        <p>Fresh Milk & Dairy Products Straight From Our Farm</p>
+    </div>
+</div>
 
+<!-- Navigation -->
 <nav>
-  <a href="#products">Products</a>
-  <a href="#order">Order Now</a>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#order">Place Order</a>
+    <a href="#contact">Contact</a>
 </nav>
 
-<div class="container" id="products">
-  <h2 style="text-align:center; margin-bottom:20px;">Our Products</h2>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://i.ibb.co/3mM8rXY/buffalo-milk.jpg" alt="Buffalo Milk">
-      <h3>Milk (Buffalo)</h3>
-      <p>₹80 per liter</p>
-      <button onclick="orderProduct('Milk')">Order Now</button>
-    </div>
-    <div class="product-card">
-      <img src="https://i.ibb.co/54Dp3ZQ/cow-milk.jpg" alt="Cow Milk">
-      <h3>Milk (Cow)</h3>
-      <p>₹60 per liter</p>
-      <button onclick="orderProduct('Milk')">Order Now</button>
-    </div>
-    <div class="product-card">
-      <img src="https://i.ibb.co/5LqLk0Y/paneer.jpg" alt="Paneer">
-      <h3>Paneer</h3>
-      <p>₹250 per kg</p>
-      <button onclick="orderProduct('Paneer')">Order Now</button>
-    </div>
-    <div class="product-card">
-      <img src="https://i.ibb.co/yg7K3Qv/ghee.jpg" alt="Ghee">
-      <h3>Ghee</h3>
-      <p>₹1200 per kg</p>
-      <button onclick="orderProduct('Ghee')">Order Now</button>
-    </div>
-  </div>
-</div>
+<!-- Home Section -->
+<section id="home">
+    <h2>Welcome to Shree Dairy Farm</h2>
+    <p>Providing fresh and high-quality milk and dairy products directly from our farm to your home.</p>
+</section>
 
-<div class="container" id="order">
-  <h2 style="text-align:center;">Place Your Order</h2>
-  <form id="orderForm" onsubmit="submitForm(event)">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="tel" id="phone" placeholder="Phone Number" required>
-    <select id="product" required onchange="calculateTotal()">
-      <option value="">Select Product</option>
-      <option value="Milk">Milk</option>
-      <option value="Ghee">Ghee</option>
-      <option value="Paneer">Paneer</option>
-    </select>
-    <select id="milkType" style="display:none;" onchange="calculateTotal()">
-      <option value="">Select Milk Type</option>
-      <option value="Buffalo">Buffalo - ₹80</option>
-      <option value="Cow">Cow - ₹60</option>
-    </select>
-    <input type="number" id="quantity" placeholder="Quantity" required min="1" onchange="calculateTotal()">
-    <select id="payment" required onchange="showPayButton(this.value)">
-      <option value="">Select Payment Method</option>
-      <option value="Cash on Delivery">Cash on Delivery</option>
-      <option value="Online Payment">Online Payment</option>
-    </select>
-    <div id="totalAmount">Total: ₹0</div>
-    <button type="submit">Place Order</button>
-  </form>
-  
-  <div id="payButton" style="display:none; text-align:center; margin-top:20px;">
-    <a href="#" id="upiLink" target="_blank">
-      <button style="background-color:#2196F3;">Pay Online via UPI/Paytm/PhonePe</button>
-    </a>
-  </div>
-</div>
+<!-- Products Section -->
+<section id="products">
+    <h2>Our Products</h2>
+    <div class="product-list">
+        <div class="product">
+            <h3>Cow Milk</h3>
+            <p>₹60 / Litre</p>
+            <a class="order-btn" href="https://wa.me/918948090989?text=I%20want%20to%20order%20Cow%20Milk">Order on WhatsApp</a>
+        </div>
+        <div class="product">
+            <h3>Buffalo Milk</h3>
+            <p>₹80 / Litre</p>
+            <a class="order-btn" href="https://wa.me/918948090989?text=I%20want%20to%20order%20Buffalo%20Milk">Order on WhatsApp</a>
+        </div>
+        <div class="product">
+            <h3>Paneer</h3>
+            <p>Fresh & Homemade</p>
+            <a class="order-btn" href="https://wa.me/918948090989?text=I%20want%20to%20order%20Paneer">Order on WhatsApp</a>
+        </div>
+        <div class="product">
+            <h3>Ghee</h3>
+            <p>Pure & Natural</p>
+            <a class="order-btn" href="https://wa.me/918948090989?text=I%20want%20to%20order%20Ghee">Order on WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-images">
+        <img src="images/cow1.jpg" alt="Cow">
+        <img src="images/buffalo1.jpg" alt="Buffalo">
+        <img src="images/milk.jpg" alt="Milk">
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials">
+    <h2>Customer Testimonials</h2>
+    <div class="testimonial-list">
+        <div class="testimonial">
+            <p>"The milk is always fresh and delicious. Highly recommend Shree Dairy Farm!"</p>
+            <span>- Ramesh Kumar</span>
+        </div>
+        <div class="testimonial">
+            <p>"Great service and quality products. Love their paneer and ghee."</p>
+            <span>- Sita Devi</span>
+        </div>
+        <div class="testimonial">
+            <p>"Reliable and fresh dairy products delivered right to my home."</p>
+            <span>- Ajay Singh</span>
+        </div>
+    </div>
+</section>
+
+<!-- Order Form Section -->
+<section id="order">
+    <h2>Place Your Order</h2>
+    <form id="orderForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+        <input type="text" id="location" placeholder="Delivery Address / Location" required>
+        <select id="product" required>
+            <option value="">Select Product</option>
+            <option value="Cow Milk">Cow Milk</option>
+            <option value="Buffalo Milk">Buffalo Milk</option>
+            <option value="Paneer">Paneer</option>
+            <option value="Ghee">Ghee</option>
+        </select>
+        <input type="number" id="quantity" placeholder="Quantity" required>
+        <textarea id="message" placeholder="Additional Message (Optional)"></textarea>
+        <button type="submit">Submit Order</button>
+    </form>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Phone: 8948090989</p>
+    <p>WhatsApp: <a href="https://wa.me/918948090989">Chat Now</a></p>
+</section>
 
 <footer>
-  <p>© 2025 श्री Dairy Farm | Pratapgarh, UP | Contact: 8948090989</p>
+    <p>© 2025 Shree Dairy Farm</p>
 </footer>
 
+<!-- Order Form Script -->
 <script>
-const prices = {
-  Milk: { Buffalo: 80, Cow: 60 },
-  Ghee: 1200,
-  Paneer: 250
-};
+const form = document.getElementById('orderForm');
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const location = document.getElementById('location').value;
+    const product = document.getElementById('product').value;
+    const quantity = document.getElementById('quantity').value;
+    const message = document.getElementById('message').value;
 
-const upiId = "rama.dairy@upi";
+    const text = `Hello, I want to order:
+Name: ${name}
+Phone: ${phone}
+Location: ${location}
+Product: ${product}
+Quantity: ${quantity}
+Message: ${message}`;
 
-function orderProduct(product) {
-  document.getElementById('product').value = product;
-  if(product === "Milk") document.getElementById('milkType').style.display = "block";
-  else document.getElementById('milkType').style.display = "none";
-  window.location.href = "#order";
-  calculateTotal();
-}
-
-function calculateTotal() {
-  const product = document.getElementById('product').value;
-  const quantity = parseFloat(document.getElementById('quantity').value) || 0;
-  let total = 0;
-  if(product === "Milk") {
-    const milkType = document.getElementById('milkType').value;
-    total = (prices.Milk[milkType] || 0) * quantity;
-  } else total = (prices[product] || 0) * quantity;
-  document.getElementById('totalAmount').innerText = `Total: ₹${total}`;
-}
-
-function showPayButton(value) {
-  document.getElementById('payButton').style.display = value === "Online Payment" ? "block" : "none";
-}
-
-function submitForm(event) {
-  event.preventDefault();
-  const name = document.getElementById('name').value;
-  const phone = document.getElementById('phone').value;
-  const product = document.getElementById('product').value;
-  const quantity = document.getElementById('quantity').value;
-  const payment = document.getElementById('payment').value;
-  let total = 0;
-  let productDetail = product;
-  if(product === "Milk") {
-    const milkType = document.getElementById('milkType').value;
-    total = (prices.Milk[milkType] || 0) * quantity;
-    productDetail += ` (${milkType})`;
-  } else total = (prices[product] || 0) * quantity;
-
-  const message = `Hello श्री Dairy Farm, I want to order:\nName: ${name}\nPhone: ${phone}\nProduct: ${productDetail}\nQuantity: ${quantity}\nPayment Method: ${payment}\nTotal Amount: ₹${total}`;
-  const whatsappUrl = `https://wa.me/918948090989?text=${encodeURIComponent(message)}`;
-  window.open(whatsappUrl, '_blank');
-
-  if(payment === "Online Payment") {
-    const upiUrl = `upi://pay?pa=${upiId}&pn=श्री Dairy Farm&tn=Order&am=${total}&cu=INR`;
-    document.getElementById('upiLink').href = upiUrl;
-  }
-}
+    const url = `https://wa.me/918948090989?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+});
 </script>
 
 </body>
 </html>
-shree-dairy-farm/
-│
-├── index.html
-├── logo.png
-└── images/
-    ├── buffalo-milk.jpg
-    ├── cow-milk.jpg
-    ├── paneer.jpg
-    └── ghee. jpg

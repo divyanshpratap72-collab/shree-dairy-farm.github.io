@@ -740,7 +740,6 @@ Message: ${message}`;
   </div>
 </div>
 
-  `;
 
   return (
     <WebView
